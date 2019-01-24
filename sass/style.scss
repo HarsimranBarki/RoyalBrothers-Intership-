@@ -1,0 +1,23 @@
+@import "base";
+@import "component";
+@import "layout";
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-size: inherit;
+    box-sizing: inherit;
+    font-family: 'Montserrat', sans-serif;
+}
+
+::before,::after,button,input,::placeholder{
+    font-family: inherit;
+}
