@@ -309,7 +309,8 @@ template {
   height: 50rem;
   background-size: cover;
   background-position: center;
-  color: #ffffff; }
+  color: #ffffff;
+  max-width: 100%; }
   .header__phone p {
     background: linear-gradient(rgba(54, 54, 54, 0.9), rgba(54, 54, 54, 0.9));
     text-align: right;
@@ -323,6 +324,7 @@ template {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
+    box-sizing: border-box;
     font-size: 1.2rem; }
     .header .navbar__left {
       display: flex;
@@ -348,7 +350,7 @@ template {
         border: 1px solid #fff;
         margin: -1rem;
         padding: 1rem;
-        box-sizing: inherit; }
+        box-sizing: border-box; }
         .header .navbar__right__items-box span:first-child {
           border-right: 1.5px solid #fff;
           padding-right: 1rem;
@@ -368,11 +370,17 @@ template {
 
 .container {
   padding: 5rem 15rem; }
+  @media only screen and (max-width: 1100px) {
+    .container {
+      padding: 5rem 5rem; } }
+  @media only screen and (max-width: 900px) {
+    .container {
+      padding: 3rem 3rem; } }
 
 .section__info__box {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-gap: 2rem;
   margin-bottom: 5rem; }
   .section__info__box__items {
     display: block;
@@ -427,16 +435,18 @@ template {
   margin-bottom: 3rem; }
 .section__bikes__container__block {
   width: 100%;
-  height: 16rem;
   padding-top: 2rem; }
   .section__bikes__container__block__boxes {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     justify-items: center;
-    border-bottom: .4rem solid #aaa;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
+    @media only screen and (max-width: 350px) {
+      .section__bikes__container__block__boxes {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); } }
     .section__bikes__container__block__boxes .subBox {
-      position: relative; }
+      border-bottom: .4rem solid #aaa;
+      width: 100%; }
       .section__bikes__container__block__boxes .subBox__title {
         position: relative;
         font-size: 1.3rem;
@@ -445,37 +455,98 @@ template {
         z-index: 100; }
       .section__bikes__container__block__boxes .subBox__image {
         margin-top: -2.5rem;
-        margin-bottom: -.25rem; }
+        margin-bottom: -.25rem;
+        margin-left: 2rem; }
+        @media only screen and (max-width: 350px) {
+          .section__bikes__container__block__boxes .subBox__image {
+            width: 80%; } }
       .section__bikes__container__block__boxes .subBox__seemore {
-        align-self: center;
-        justify-self: center;
         font-weight: 700;
         color: #aaa;
         font-size: 1.5rem;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 10rem; }
+        margin-top: 8rem;
+        margin-left: 10rem; }
 
 .section__news__container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   margin-top: 3rem;
   padding: 1rem 3rem;
   grid-column-gap: 2rem; }
+  @media only screen and (max-width: 800px) {
+    .section__news__container {
+      padding: .5rem 3rem;
+      grid-gap: 2.5rem; } }
+  @media only screen and (max-width: 600px) {
+    .section__news__container {
+      grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); } }
   .section__news__container img {
     width: 20rem; }
+    @media only screen and (max-width: 1400px) {
+      .section__news__container img {
+        width: 15rem; } }
+    @media only screen and (max-width: 1100px) {
+      .section__news__container img {
+        width: 15rem; } }
+    @media only screen and (max-width: 800px) {
+      .section__news__container img {
+        width: 12rem; } }
+    @media only screen and (max-width: 600px) {
+      .section__news__container img {
+        width: 10rem; } }
 
 .footer {
   background-color: #363636;
   padding: 3rem 15rem;
   color: #E3E1E1; }
+  @media only screen and (max-width: 1110px) {
+    .footer {
+      padding: 3rem 6rem; } }
+  @media only screen and (max-width: 700px) {
+    .footer {
+      padding: 3rem 3rem; } }
+  @media only screen and (max-width: 480px) {
+    .footer {
+      padding: 1rem 1rem; } }
   .footer__container {
     display: grid;
     grid-template-columns: 40rem repeat(3, 1fr); }
+    @media only screen and (max-width: 1130px) {
+      .footer__container {
+        grid-template-columns: 28rem repeat(3, 1fr); } }
+    @media only screen and (max-width: 830px) {
+      .footer__container {
+        grid-template-columns: 25rem repeat(3, 1fr); } }
+    @media only screen and (max-width: 800px) {
+      .footer__container {
+        grid-template-columns: 20rem repeat(3, 1fr); } }
+    @media only screen and (max-width: 700px) {
+      .footer__container {
+        grid-template-columns: repeat(3, 1fr); } }
+    @media only screen and (max-width: 480px) {
+      .footer__container {
+        display: flex;
+        flex-direction: column; } }
+    @media only screen and (max-width: 700px) {
+      .footer__container__box {
+        margin-top: 0 !important; }
+        .footer__container__box:first-child {
+          grid-column-start: 0;
+          grid-column-end: 1; } }
     .footer__container__box img {
       width: 40rem; }
+      @media only screen and (max-width: 1400px) {
+        .footer__container__box img {
+          width: 30rem; } }
+      @media only screen and (max-width: 830px) {
+        .footer__container__box img {
+          width: 25rem; } }
+      @media only screen and (max-width: 800px) {
+        .footer__container__box img {
+          width: 20rem; } }
+      @media only screen and (max-width: 701px) {
+        .footer__container__box img {
+          display: none; } }
     .footer__container__box__list {
       font-weight: 700;
       font-size: 2.5rem; }
@@ -488,18 +559,27 @@ template {
     margin-top: 2rem;
     font-size: 1.6rem;
     font-weight: 400; }
+    @media only screen and (max-width: 480px) {
+      .footer__copy {
+        margin-top: 1rem; } }
 
 html {
   font-size: 62.5%;
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif; }
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  min-width: 100%; }
 
 body {
   margin: 0;
   padding: 0;
   font-size: inherit;
   box-sizing: inherit;
-  font-family: 'Montserrat', sans-serif; }
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+  min-width: 100%; }
 
 ::before, ::after, button, input, ::placeholder {
   font-family: inherit; }

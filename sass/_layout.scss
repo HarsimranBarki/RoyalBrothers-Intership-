@@ -4,6 +4,8 @@
     background-size: cover;
     background-position:center;
     color: #ffffff;
+    max-width: 100%;
+
 
 
     &__phone{
@@ -24,6 +26,8 @@
         align-items: center;
 
         padding: 1rem 2rem;
+
+        box-sizing: border-box;
 
         font-size: 1.2rem;
 
@@ -68,7 +72,7 @@
                     border: 1px solid #fff;
                     margin: -1rem;
                     padding: 1rem;
-                    box-sizing: inherit;
+                    box-sizing: border-box;
 
                     span:first-child{
                         border-right: 1.5px solid #fff;
@@ -111,14 +115,25 @@
 
 .container{
     padding: 5rem 15rem;
+
+    @media only screen and (max-width:1100px) {
+        padding: 5rem 5rem;
+    }
+
+    @media only screen and (max-width:900px) {
+        padding: 3rem 3rem;
+    }
+    //@media only screen and (max-width:700px) {
+    //     font-size:10vw;
+    //  }
 }
 // **************************************************************************
 
 .section__info{
     &__box{
         display: grid;
-        grid-template-columns: repeat(4,1fr);
-        grid-gap: 3rem;
+        grid-template-columns:repeat( auto-fit, minmax(180px, 1fr) );
+        grid-gap: 2rem;
         margin-bottom: 5rem;
 
         &__items{
@@ -159,7 +174,7 @@
         &__box{
             display: grid;
             grid-template-columns: 5rem 1fr;
-            align-items: center;
+            align-items: center;            
 
             .number{
                 font-size: 4.9rem;
@@ -197,17 +212,29 @@
    &__container{
        &__block{
            width: 100%;
-           height: 16rem;
+        //    height: 16rem;
            padding-top: 2rem;
         
            &__boxes{
             display: grid;
-            grid-template-columns: repeat(4,1fr);
+            grid-template-columns:repeat( auto-fit, minmax(260px, 1fr) );
+            // grid-template-rows : repeat(4,1fr);
             justify-items: center;
-            border-bottom: .4rem solid #aaa;
+            // border-bottom: .2rem solid #aaa;
             box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+            @media only screen and (max-width: 1300px) {
+                // grid-template-columns: repeat(3,1fr);
+              }
+
+              @media only screen and (max-width:350px) {
+                grid-template-columns:repeat( auto-fit, minmax(200px, 1fr) );
+            }
+
             .subBox{
-                position: relative;
+                border-bottom: .4rem solid #aaa;
+                width: 100%;
+            
                 &__title{
                     position: relative;
                     font-size: 1.3rem;
@@ -219,19 +246,19 @@
                 &__image{
                     margin-top: -2.5rem;
                     margin-bottom: -.25rem;
+                    margin-left: 2rem;
+
+                    @media only screen and (max-width:350px) {
+                        width: 80%;
+                    }
                 }
 
                 &__seemore{
-                    align-self: center;
-                    justify-self: center;
                    font-weight: 700;
                    color: #aaa;
                    font-size: 1.5rem;
-                   position: absolute;
-                   top: 50%;
-                   left: 50%;
-                   transform: translate(-50%,-50%);
-                   width: 10rem;
+                   margin-top: 8rem;
+                   margin-left: 10rem;
                 }
             }
             
@@ -246,14 +273,45 @@
 .section__news{
     &__container{
         display: grid;
-        grid-template-columns: repeat(4,1fr);
-
+        grid-template-columns:repeat( auto-fit, minmax(100px, 1fr) );
         margin-top: 3rem;
         padding: 1rem 3rem;
         grid-column-gap: 2rem;
 
+        @media only screen and (max-width:800px) {
+            padding: .5rem 3rem;
+            grid-gap: 2.5rem;
+        }
+
+        @media only screen and (max-width:600px) {
+            grid-template-columns:repeat( auto-fit, minmax(80px, 1fr) );
+        }
+
+       
+
+     
+
+      
+
         img{
             width: 20rem;
+
+            @media only screen and (max-width:1400px) {
+                width: 15rem;
+            }
+    
+
+            @media only screen and (max-width:1100px) {
+                width: 15rem;
+            }
+
+            @media only screen and (max-width:800px) {
+                width: 12rem;
+            }
+
+            @media only screen and (max-width:600px) {
+                width: 10rem;
+            }
         }
     }
 }
@@ -262,14 +320,75 @@
     background-color: #363636;
     padding: 3rem 15rem;
     color: #E3E1E1;
+
+    @media only screen and (max-width:1110px) {
+        padding: 3rem 6rem;
+    }
+
+    @media only screen and (max-width:700px) {
+        padding: 3rem 3rem;
+    }
+
+    @media only screen and (max-width:480px) {
+        padding: 1rem 1rem;
+     }
     &__container{
         display: grid;
-        grid-template-columns: 40rem repeat(3,1fr);
+        grid-template-columns: 40rem repeat( 3, 1fr );
+
+        @media only screen and (max-width:1130px) {
+            grid-template-columns: 28rem repeat( 3, 1fr );
+        }
+
+        @media only screen and (max-width:830px) {
+            grid-template-columns: 25rem repeat( 3, 1fr );
+        }
+        @media only screen and (max-width:800px) {
+            grid-template-columns: 20rem repeat( 3, 1fr );
+        }
+        @media only screen and (max-width:700px) {
+            grid-template-columns: repeat( 3, 1fr );
+        }
+
+        @media only screen and (max-width:480px) {
+          display: flex;
+          flex-direction: column;
+        }
 
         &__box{
 
+            @media only screen and (max-width:700px) {
+               margin-top: 0 !important;
+
+               &:first-child{
+                grid-column-start: 0;
+                grid-column-end: 1;
+            }
+               
+            }
+
+
+
+           
+
             img{
                 width: 40rem;
+                @media only screen and (max-width:1400px) {
+                    width: 30rem;
+                }
+
+                @media only screen and (max-width:830px) {
+                    width: 25rem;
+                }
+
+                @media only screen and (max-width:800px) {
+                    width: 20rem;
+                }
+
+                @media only screen and (max-width:701px) {
+                    display: none;
+                   
+                }
             }
 
             &__list{
@@ -291,5 +410,11 @@
        margin-top: 2rem;
        font-size: 1.6rem;
        font-weight: 400;
+
+       @media only screen and (max-width:480px) {
+
+        margin-top: 1rem;
+        
+     }
     }
 }
