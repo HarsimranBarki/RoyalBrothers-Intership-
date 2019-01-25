@@ -317,6 +317,10 @@ template {
     font-size: 1.4rem;
     padding: .5rem;
     margin: 0; }
+    @media only screen and (max-width: 350px) {
+      .header__phone p {
+        font-size: 1.2rem;
+        text-align: center; } }
   .header .navbar {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
     box-shadow: 0px 0.1rem 0.1rem rgba(0, 0, 0, 0.5);
@@ -332,9 +336,56 @@ template {
     .header .navbar__right {
       align-items: center;
       transform: translateX(-1rem); }
+      .header .navbar__right__menu {
+        display: none;
+        transition: all .2s; }
+        @media only screen and (max-width: 1000px) {
+          .header .navbar__right__menu {
+            display: block; } }
+        .header .navbar__right__menu__container {
+          display: none;
+          position: fixed;
+          top: 0;
+          right: 0;
+          z-index: 10;
+          background-color: #efefef;
+          color: #363636;
+          margin-top: -30px;
+          margin-right: -20px;
+          padding: 3rem 3rem 1rem 1rem;
+          border-radius: 3rem;
+          width: 15rem; }
+          @media only screen and (max-width: 800px) {
+            .header .navbar__right__menu__container {
+              padding: 2rem 2rem 1rem 1rem; } }
+          @media only screen and (max-width: 700px) {
+            .header .navbar__right__menu__container {
+              padding: 1rem 1rem 1rem 1rem;
+              width: 12rem; } }
+          @media only screen and (max-width: 500px) {
+            .header .navbar__right__menu__container {
+              padding: 0;
+              width: 11rem; } }
+        .header .navbar__right__menu__list {
+          list-style: none;
+          font-size: 2rem; }
+          @media only screen and (max-width: 800px) {
+            .header .navbar__right__menu__list {
+              font-size: 1.8rem; } }
+          @media only screen and (max-width: 700px) {
+            .header .navbar__right__menu__list {
+              font-size: 1.5rem; } }
+          @media only screen and (max-width: 600px) {
+            .header .navbar__right__menu__list {
+              font-size: 1.2rem; } }
+        .header .navbar__right__menu__items {
+          margin-bottom: 3rem; }
       .header .navbar__right__list {
         display: flex;
         list-style: none; }
+        @media only screen and (max-width: 1000px) {
+          .header .navbar__right__list {
+            display: none; } }
       .header .navbar__right__items:not(:last-child) {
         margin-right: 5rem; }
       .header .navbar__right__items:hover:not(:last-child) {
@@ -363,10 +414,22 @@ template {
       width: 15rem;
       height: 4.5rem;
       margin-right: 4rem; }
+      @media only screen and (max-width: 400px) {
+        .header .navbar__logo {
+          width: 10rem;
+          height: 2.5rem; } }
+      @media only screen and (max-width: 350px) {
+        .header .navbar__logo {
+          width: 8rem;
+          height: 2rem; } }
     .header .navbar__bikes i {
       font-size: 1.5rem;
       margin-left: .5rem;
       transform: translateY(0.2rem); }
+    @media only screen and (max-width: 350px) {
+      .header .navbar__bikes {
+        font-size: 1.3rem;
+        margin-left: -2rem; } }
 
 .container {
   padding: 5rem 15rem; }
@@ -559,9 +622,24 @@ template {
     margin-top: 2rem;
     font-size: 1.6rem;
     font-weight: 400; }
+    @media only screen and (max-width: 800px) {
+      .footer__copy {
+        font-size: 1.4rem;
+        margin-top: 1rem; } }
     @media only screen and (max-width: 480px) {
       .footer__copy {
+        font-size: 1.2rem;
         margin-top: 1rem; } }
+    @media only screen and (max-width: 35px) {
+      .footer__copy {
+        font-size: 1rem;
+        margin-top: 1rem; } }
+
+.display {
+  display: block; }
+
+.hidden {
+  display: hidden; }
 
 html {
   font-size: 62.5%;
